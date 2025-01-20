@@ -11,8 +11,9 @@ Prerequisites
 
 Clone the Repository
 
-git clone https://github.com/yourusername/movie-api-service.git
-cd movie-api-service
+git clone https://github.com/leanaguilar/test-moviedb.git
+cd test-moviedb
+branch: master
 
 Configure the Application
 
@@ -55,7 +56,8 @@ mvn clean install
 mvn spring-boot:run
 
 The application will start on http://localhost:8080.
-API Key System
+
+The hardcoded valid API key is 12345. Any other key will be considered invalid.
 
 The API is protected by an API key system, where users need to pass the API key as a query parameter in every request. This is done by adding api_key to the URL like this:
 
@@ -66,7 +68,7 @@ API Key Validation
     If the API key is missing or invalid, the API will return the following error responses:
         Missing API key: 400 Bad Request with message "Error: API key is missing".
         Invalid API key: 403 Forbidden with message "Error: Invalid API key".
-    The hardcoded valid API key is 12345. Any other key will be considered invalid.
+    
 
 Database Schema
 
@@ -99,7 +101,7 @@ CREATE TABLE IF NOT EXISTS movie (
 
 Sample Data
 
-You should populate the database with sample movie records for testing purposes. Here’s an example of inserting a sample record:
+Database is populated with data taken from data.sql file. H2 is the relational database management system and for this example is created in memory.
 
 INSERT INTO movie (title, release_date, poster_url, overview, genres, rating, runtime, language)
 VALUES 
